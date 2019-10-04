@@ -24,7 +24,7 @@ for file in files:
 
 #RETRIVING HEIGHT AND WIDTH VALUES FROM JSON    
 import pandas as pd
-data = pd.read_json("via_project_22Sep2019_20h26m.json")
+data = pd.read_json("Annotation.json")
 img_data = data['_via_img_metadata']
 width_list = []
 height_list = []
@@ -43,21 +43,24 @@ for key,value in img_data.items():
 
 #CONVERTING LIST INTO DATAFRAME
 hw = pd.DataFrame()
+divvariable = 400
+height_list = [x / divvariable for x in height_list]
+width_list = [x / divvariable for x in width_list]
 hw['height'] = height_list
 hw['width'] = width_list
 
 #NORMALIZING DATASET
-from sklearn.preprocessing import MinMaxScaler
-scaler = MinMaxScaler()
-scaled = scaler.fit_transform(hw)
+#from sklearn.preprocessing import MinMaxScaler
+#scaler = MinMaxScaler()
+#scaled = scaler.fit_transform(hw)
 
 #APPLYING K-MEANS
 from sklearn.cluster import KMeans
 kmeans = KMeans(n_clusters = 4, init = 'k-means++', random_state = 42)
-y_kmeans = kmeans.fit_predict(scaled)
+y_kmeans = kmeans.fit_predict(hw)
 
 #FINDING CLUSTER CENTERS
 kmeans.cluster_centers_
 
 #FINDING INVERSE_TRANSFORM OF CLUSTER CENTROIDS
-unscaled = scaler.inverse_transform(kmeans.cluster_centers_)
+#unscaled = scaler.inverse_transform(kmeans.cluster_centers_)
