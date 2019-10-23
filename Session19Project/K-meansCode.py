@@ -1,6 +1,6 @@
 #RENAME
 import os
-path = 'D:/MOOC/YOLO Dataset'
+path = 'D:/MOOC/chuma'
 files = os.listdir(path)
 i = 1
 
@@ -40,6 +40,30 @@ for key,value in img_data.items():
                                 width_list.append(d)
                             elif('height' in c):
                                 height_list.append(d)
+
+inputlist = [{'pre_app_screen': 'LeaveApplication', 'pre_subapp_screen': 'SparshPlanApplyLeave'}, 'n', {'IncidentNumber': 'None'}, {'no_of_leaves_applied': 1}, {'leave_appliation_status': 'You can go ahead and apply leave.'}, {'email_id': 'Ramjee_R@infosys.com'}, {'leave_type_selected': 'None'}]
+checklist = ['pre_app_screen','pre_subapp_screen','IncidentNumber','no_of_leaves_applied','leave_appliation_status','email_id','leave_type_selected']
+outdict = {}
+
+for iteration in inputlist:
+    print(iteration)
+    #print(type(iteration))
+    if(isinstance(iteration,dict)):
+        for key,value in iteration.items():
+           for i in checklist:
+               if(key == i):
+                   if(value != "None"):
+                       outdict[key] = value
+                       
+                   
+                   
+                   
+                   
+    
+    
+    
+    
+    
 
 #CONVERTING LIST INTO DATAFRAME
 hw = pd.DataFrame()
