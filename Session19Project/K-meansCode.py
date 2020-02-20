@@ -1,14 +1,16 @@
 #RENAME
 import os
-path = 'D:/MOOC/chuma'
+path = 'D:/MOOC/EVARepository/Session19Project/CameraDataset'
 files = os.listdir(path)
 i = 1
 
 for file in files:
     if (i<10):
-        os.rename(file,"img_00" + str(i) +'.jpg')
+        os.rename(file,"img00" + str(i) +'.jpg')
+    elif (i<100):
+        os.rename(file,"img0" + str(i) +'.jpg')
     else:
-        os.rename(file,"img_0" + str(i) +'.jpg')
+        os.rename(file,"img" + str(i) +'.jpg')
     i = i+1    
 
 #RESIZE    
