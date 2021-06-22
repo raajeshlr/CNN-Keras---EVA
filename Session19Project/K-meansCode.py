@@ -43,9 +43,6 @@ for key,value in img_data.items():
                             elif('height' in c):
                                 height_list.append(d)
 
-inputlist = [{'pre_app_screen': 'LeaveApplication', 'pre_subapp_screen': 'SparshPlanApplyLeave'}, 'n', {'IncidentNumber': 'None'}, {'no_of_leaves_applied': 1}, {'leave_appliation_status': 'You can go ahead and apply leave.'}, {'email_id': 'Ramjee_R@infosys.com'}, {'leave_type_selected': 'None'}]
-checklist = ['pre_app_screen','pre_subapp_screen','IncidentNumber','no_of_leaves_applied','leave_appliation_status','email_id','leave_type_selected']
-outdict = {}
 
 for iteration in inputlist:
     print(iteration)
